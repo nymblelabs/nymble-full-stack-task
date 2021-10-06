@@ -14,12 +14,3 @@ export interface Genre {
     id: number
     name: string
 }
-
-export interface MovieInput {
-    title: string
-    release_date: string
-    popularity: number
-    overview: string
-    adult: boolean
-    genre_ids: number[]
-}
