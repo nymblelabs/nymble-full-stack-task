@@ -75,7 +75,7 @@ The backend starter project has the following stack.,
 
 > Uses `yarn` package manager
 
-A working GraphQL backend is provided that already does the following:
+A working backend is provided that already does the following:
 
 1. List all movies
 2. List all genres
