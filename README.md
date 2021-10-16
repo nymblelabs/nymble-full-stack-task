@@ -1,6 +1,6 @@
 # Nymble FullStack Internship Task
 
-Build a simple Movie Browser Full-Stack application with VueJS frontend and GraphQL backend.
+Build a simple Movie Browser Full-Stack application with VueJS frontend and REST API backend.
 
 The movie browser application must be able to do the following,
 
@@ -47,8 +47,7 @@ Deliver a working web application with the following requirements:
 - On clicking back, it should take back to the Homepage
 
 > Note that the client must be communicating with the provided back-end only.
-> You can use libraries like [`axios`](https://www.npmjs.com/package/axios) or [`Vue Apollo`](https://apollo.vuejs.org/)
-> The latter is recommended.
+> You can use libraries like [`axios`](https://www.npmjs.com/package/axios) for making API requests.
 
 ##### Routing
 
@@ -69,9 +68,10 @@ Deliver a working web application with the following requirements:
 
 The backend starter project has the following stack.,
 
-- Apollo GraphQL
+- Nodejs
 - Typescript
 - Express
+- Some sample data (as DB)
 
 > Uses `yarn` package manager
 
@@ -79,25 +79,25 @@ A working GraphQL backend is provided that already does the following:
 
 1. List all movies
 2. List all genres
-3. Add a new movie listing
 
-Deliver a complete GraphQL API backend by adding the following requirements:
+Deliver a complete API backend by adding the following requirements:
 
 1. Search functionality for `movies` query
    - If `search` term is empty/null, return all movies
-   - If `search` term is provided, return movies that match it's title
-2. Provide `genres` data instead of `genre_ids` by chaining the resolvers with `movies` query.
-   - By default, the `movies` query returns `genre_ids` which requires the client to make another API call to get the genre names. Avoid underfetching in GraphQL.
-   - If you're not familier to this term, read about it [here](https://www.apollographql.com/docs/apollo-server/data/resolvers/#resolver-chains)
-3. Create `addRating` mutation that accepts `movieId` and `rating` as params.
+   - If `search` term is provided, return movies that match it's title. (Use contains operation)
+2. Implement the missing logics
+   - Return movie matching the provided ID
+   - Return genres matching the provided ID
+3. Implement `/movies/:id/ratings` route to add a new movie rating.
    - The `vote_average` and `vote_count` for that movie must be updated accordingly.
    - Return the updated `movie` data
 
-| Script       | Description                   |
-| ------------ | ----------------------------- |
-| `yarn build` | Compile and build the project |
-| `yarn start` | Start the server in port 5000 |
-| `yarn test`  | Run test, if any              |
+| Script       | Description                                   |
+| ------------ | --------------------------------------------- |
+| `yarn build` | Compile and build the project                 |
+| `yarn start` | Start the server in port 5000                 |
+| `yarn dev`   | Convenient script to build & start the server |
+| `yarn test`  | Run test, if any                              |
 
 ### Improvements
 
@@ -110,18 +110,16 @@ These are optional improvements that you can add to the client or the backend wh
 
 ##### Backend
 
-1. Write Unit test for all queries and mutations.
+1. Write Unit test for the backend logic.
    - Use the `jest` framework that comes with the project.
    - Run the test using `yarn test` command
-2. Modify the `Movie` schema to include the Movie poster URL.
+2. Modify the `Movie` data to include a Movie poster URL.
    - The frontend must display the poster as well.
 3. Filter the movies list by `genre`
    - The frontend must be changed accordingly to support this feature.
 4. Sort the movies list by `popularity`
    - The frontend must be changed accordingly to support this feature.
-5. Create `addMovie` mutation to create new movie listing.
-   - Required only if Point(2) from Frontend Improvements is attempted.
-6. Add pagination support to the `movies` query.
+5. Add pagination support to the `movies` query.
 
 ### Submission
 

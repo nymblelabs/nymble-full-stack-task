@@ -8,8 +8,8 @@ const PORT = 5000
  * Return movies that match the 'search term' with movie 'title'.
  * If search term is not provided, return all movies.
  */
-app.get('/movies?search=:s', (req, resp) => {
-    // req.params.s
+app.get('/movies', (req, resp) => {
+    // req.params.search
     resp.send(movies)
 })
 
@@ -26,6 +26,7 @@ app.get('/genres', (req, resp) => {
 app.get('/movies/:id', (req, resp) => {
     // const id = Number(req.params.id)
     // TODO Return the movie
+    resp.send([])
 })
 
 /**
@@ -33,6 +34,7 @@ app.get('/movies/:id', (req, resp) => {
  */
 app.get('/genres/:id', (req, resp) => {
     // TODO
+    resp.send([])
 })
 
 /**
@@ -42,6 +44,7 @@ app.get('/genres/:id', (req, resp) => {
 app.post('/movies/:id/ratings', (req, resp) => {
     // TODO
     // req.body.ratingVal
+    resp.send([])
 })
 
 app.listen(PORT, () => {
